@@ -9,8 +9,6 @@ def show_menu_():
     print("-" * 50)
     return option
 
-import re 
-
 car_list = []
 
 def add_car():
