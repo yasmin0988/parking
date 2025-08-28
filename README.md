@@ -1,4 +1,4 @@
-# Car Manager 
+# Parking Manager 
 
 A simple Python command-line application to manage a list of cars. You can add new cars, find them by their license plate, and view the full list.
 
