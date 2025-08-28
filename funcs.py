@@ -7,9 +7,7 @@ def show_menu_():
     global option
     option = input("Enter option: ")
     print("-" * 50)
-    return option
-
-import re 
+    return option 
 
 car_list = []
 
