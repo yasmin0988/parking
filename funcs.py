@@ -12,26 +12,39 @@ def show_menu_():
 car_list = []
 
 def add_car():
-    while True:
-        name = input("Enter car's name: ")
-        if re.match(r"^[a-zA-Z\s]{3,30}$", name):  
-            break
-        else:
-            print("Name is not valid.")
 
-    while True:
-        model = input("Enter car's model: ")
-        if re.match(r"^[a-zA-Z\s\d]{3,30}$", model):  
-            break
-        else:
-            print("Model is not valid.")
+    def data_validator(propose, pattern, error):
 
-    while True:
-        plate = input("Enter car's plate: ")
-        if re.match(r"^[\d][\d][a-zA-Z][\d][\d][\d]_iran[\d][\d]$", plate):  
-            break
+        value = input(propose)
+        if re.match(pattern, propose):
+            return value
         else:
-            print("Plate is not valid.")
+            print(error)
+
+    name = data_validator("Enter car's name: ", r"^[a-zA-Z\s]{3,30}$", "Name is not valid.")
+    model = data_validator("Enter car's model:", r"^[a-zA-Z\s\d]{3,30}$", "Model is not valid.")
+    plate = data_validator("Enter car's plate: ", r"^[\d][\d][a-zA-Z][\d][\d][\d]_iran[\d][\d]$", "Plate is not valid.")
+
+    # while True:
+    #     name = input("Enter car's name: ")
+    #     if re.match(r"^[a-zA-Z\s]{3,30}$", name):  
+    #         break
+    #     else:
+    #         print("Name is not valid.")
+
+    # while True:
+    #     model = input("Enter car's model: ")
+    #     if re.match(r"^[a-zA-Z\s\d]{3,30}$", model):  
+    #         break
+    #     else:
+    #         print("Model is not valid.")
+
+    # while True:
+    #     plate = input("Enter car's plate: ")
+    #     if re.match(r"^[\d][\d][a-zA-Z][\d][\d][\d]_iran[\d][\d]$", plate):  
+    #         break
+    #     else:
+    #         print("Plate is not valid.")
 
     while True:
         color = input("Enter car's color: ")
@@ -55,12 +68,10 @@ def find_by_plate():
         else:
             print("Plate is not valid.")
 
-    founded = []
-
-    for item in car_list:
-        if find_plate == item["plate"]:
-            founded.append(item) 
-        
+    def has_matching_plate(car):
+        return car["plate"] == find_plate
+    
+    founded = list(filter(has_matching_plate, car_list))
     return founded
 
 def show_car_list():

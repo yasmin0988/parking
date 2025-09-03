@@ -12,9 +12,14 @@ while True:
         case "2":
             founded = find_by_plate()
             if founded:
-                print("Found car(s): ")
-                for car in founded:
+                def print_car(car):
                     print(car)
+                list(map(print_car, founded))
+                
+            #     print("Found car(s): ")
+            #     for car in founded:
+            #         print(car)
+            
             else:
                 print("No cars were found.")
 
