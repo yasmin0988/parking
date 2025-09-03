@@ -71,8 +71,10 @@ def show_car_list():
     
     print("Car List:")
     print("-" * 50)
+
+    counter = 0
     for car in car_list:
-        counter = 1
+        counter += 1
         print(f"Car{counter}")
         print(f"  Name: {car['name']}")
         print(f"  Model: {car['model']}")
