@@ -1,4 +1,4 @@
-from funcs import *
+from parking.parking_funcs import *
 
 while True:
     
